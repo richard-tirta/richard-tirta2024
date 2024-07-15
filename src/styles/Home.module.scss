@@ -1,10 +1,47 @@
+@import '/src/styles/globals.scss';
+
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+	margin-top: 120px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+	padding-left: 30px;
+	padding-right: 30px;
+	width: 100vw;
+	@include xsmall {
+		padding-left: 20px;
+		padding-right: 20px;
+		width: calc(100% - 40px);
+		margin-left: 0;
+		margin-right: 0;
+		&.lightbox-height {
+			height: 100vh;
+			overflow-y: hidden;
+		}
+	}
+	h3 {
+		align-items: center;
+		display: flex;
+		.featured {
+			margin-right: 4px;
+		}
+	}
+}
+
+
+.intro {
+	width: 100%;
+  @include large {
+    display: flex;
+    justify-content: space-between;
+    .intro_left {
+      max-width: 450px;
+    }
+    .intro_right {
+      text-align: right;
+      max-width: 400px;
+    }
+  }
 }
 
 .description {
@@ -104,9 +141,7 @@
   transform: translateZ(0);
 }
 
-.logo {
-  position: relative;
-}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -210,13 +245,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
 
-  .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
+
+
 }
 
 @keyframes rotate {
