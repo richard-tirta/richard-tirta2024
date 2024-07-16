@@ -1,3 +1,4 @@
 
 import profile from "./profile";
-export const schemaTypes = [profile]
+import works from "./works";
+export const schemaTypes = [profile, works];
