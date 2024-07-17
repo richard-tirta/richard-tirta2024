@@ -18,3 +18,25 @@ export type ProfileType = {
   socialLinks: string[],
   skills: string[],
 };
+
+export type WorksType = {
+  _id: string,
+  projectName: string,
+  clientName: string,
+  thumbnail: {
+    alt: string,
+    image: string
+  },
+  description: string,
+  link: string,
+  launchDate: string,
+  gallery: {
+    alt: string,
+    image: string
+  }[],
+  videoLink: {
+    url: string
+  }[],
+  skillsData: string[],
+  awards: string[],
+};

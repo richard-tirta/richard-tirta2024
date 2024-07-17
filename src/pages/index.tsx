@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { getProfile } from "../../sanity/sanity.query";
-import type { ProfileType } from "../../types";
+import { getProfile, getWorks } from "../../sanity/sanity.query";
+import type { ProfileType, WorksType } from "../../types";
 
 import styles from "@/styles/Home.module.scss";
 
@@ -45,6 +45,9 @@ export async function getStaticProps() {
 
   const weatherData = await response.json();
   const profile: ProfileType[] = await getProfile();
+  const works: WorksType[] = await getWorks();
+
+  //console.log('works', works);
 
   //console.log('weatherData', weatherData);
 
@@ -52,14 +55,24 @@ export async function getStaticProps() {
     props: {
       weatherData,
       profile,
+      works,
     },
     revalidate: 36000,
   }
 
 }
 
-export default function Home({ weatherData: weather, profile }: { weatherData: tWeatherData, profile: ProfileType[] }) {
-  console.log('weatherData', weather.daily.data[0]);
+export default function Home({ weatherData: weather, profile, works }: { weatherData: tWeatherData, profile: ProfileType[], works: WorksType[] }) {
+  // console.log('weatherData', weather.daily.data[0]);
+
+  // console.log('hello', works);
+
+  // const test = works.map((data) => {
+  //   console.log('data', data.skillsData);
+  //   data.skillsData.map((skill) => { 
+  //     console.log('skill', skill);
+  //   })
+  //  });
 
 
   return (
@@ -128,7 +141,32 @@ export default function Home({ weatherData: weather, profile }: { weatherData: t
 
           <p className="align-right">Last Updated: February 2021</p>
 
-          <div id="works-container"></div>
+          <div id="works-container">
+            {
+              works && works.map(
+                (data) => (
+                  <div className={`${styles.project_container}`} key={data._id}>
+                    <div className={`${styles.project_description}`}>
+                      <h4>{data.projectName}</h4>
+                      <p>{data.clientName}</p>
+                      <ul>
+                        {
+                          data.skillsData && data.skillsData.map(
+                            (skill, id) => (
+                              <li key={id}>{skill}</li>
+                            )
+                          )
+                        }
+                      </ul>
+                    </div>
+                    <div className={`${styles.project_image}`}>
+                      <Image src={data.thumbnail.image} alt={data.thumbnail.alt} width={500} height={500} />
+                    </div>
+                  </div>
+                )
+              )
+            }
+          </div>
         </section>
         <section id="about">
           <h3>

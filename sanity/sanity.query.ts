@@ -16,7 +16,25 @@ export async function getProfile() {
       email,
       "resumeURL": resumeURL.asset->url,
       socialLinks,
-      skills
+      "skillsData": skills,
+    }`
+  );
+}
+
+export async function getWorks() {
+  return client.fetch(
+    groq`*[_type == "works"]{
+      _id,
+      projectName,
+      clientName,
+      thumbnail {alt, "image": asset->url},
+      description,
+      link,
+      launchDate,
+      gallery[] {alt, "image": asset->url},
+      videoLink[] {url},
+      "skillsData": skills,
+      "awardData": award,
     }`
   );
 }
