@@ -76,7 +76,7 @@ const works = {
     },
     {
       name: "award",
-      title: "Awards",
+      title: "Award",
       type: "array",
       description: "Add a list of awards",
       of: [{ type: "string" }],

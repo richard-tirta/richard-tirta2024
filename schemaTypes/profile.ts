@@ -90,11 +90,25 @@ const profile = {
     },
     {
       name: "skills",
-      title: "Skills",
+      title: "Technical Skills",
       type: "array",
       description: "Add a list of skills",
       of: [{ type: "string" }],
     },
+    {
+      name: "concept",
+      title: "Conceptual Skills",
+      type: "array",
+      description: "Add a list of conceptua lskills",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "contact",
+      title: "Contact Information",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+
  ],
 };
 

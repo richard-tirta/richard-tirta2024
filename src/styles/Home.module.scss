@@ -4,13 +4,13 @@
 	margin-top: 120px;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1300px;
+	max-width: 1400px;
 	padding-left: 30px;
 	padding-right: 30px;
 	width: 100vw;
 	@include xsmall {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 16px;
+		padding-right: 16px;
 		width: calc(100% - 40px);
 		margin-left: 0;
 		margin-right: 0;
@@ -81,19 +81,6 @@
       margin: 0;
     }
 	}
-	.project_tools {
-		align-items: flex-start;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		span {
-			border: 1px solid #ccc;
-			margin-right: 8px;
-			margin-top: 8px;
-			line-height: 1.2;
-			padding: 4px;
-		}
-	}
 	.project_image {
 		width: 65%;
 		height: 214px;
@@ -105,6 +92,7 @@
 		}
 		img {
 			width: 100%;
+			height: auto;
 			@include xsmall {
 				height: 100%;
 				transform: translateX(-25%);
@@ -112,21 +100,15 @@
 			}
 		}
 	}
-  .project_tools {
-		align-items: flex-start;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-    padding: 0;
-    margin-top: 10px;
-    margin-bottom: 0;
-		li {
-			border: 1px solid #ccc;
-      list-style: none;
-			margin-right: 8px;
-			margin-top: 8px;
-			line-height: 1.2;
-			padding: 4px;
-		}
+}
+
+.about_container {
+	display: flex;
+	.about_text {
+		padding-right: 30px;
+		width: 45%;
+	}
+	.about_text2 {
+		width: 55%;
 	}
 }

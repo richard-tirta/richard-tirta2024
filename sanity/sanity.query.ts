@@ -17,6 +17,8 @@ export async function getProfile() {
       "resumeURL": resumeURL.asset->url,
       socialLinks,
       "skillsData": skills,
+      "conceptData": concept,
+      contact,
     }`
   );
 }
