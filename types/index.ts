@@ -2,6 +2,20 @@
 
 import { PortableTextBlock } from "sanity";
 
+export type tWeatherData = {
+  "lat": string,
+  "lon": string,
+  "elevation": number,
+  "units": string,
+  "daily": {
+    data: [
+      {
+        summary: string,
+      },
+    ],
+  },
+}
+
 export type ProfileType = {
   _id: string,
   fullName: string,

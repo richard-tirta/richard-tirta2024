@@ -1,29 +1,12 @@
-import Head from "next/head";
-import { Inter } from "next/font/google";
-import { getProfile, getWorks } from "../../sanity/sanity.query";
-import type { ProfileType, WorksType } from "../../types";
 
-import styles from "@/styles/Home.module.scss";
+import { getProfile, getWorks } from "../../sanity/sanity.query";
+import type { tWeatherData, ProfileType, WorksType } from "../../types";
 
 import Image from "next/image";
-import logo from "/public/logo-richardtirta.png";
+import Link from "next/link";
+import styles from "@/styles/Home.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
-
-type tWeatherData = {
-  "lat": string,
-  "lon": string,
-  "elevation": number,
-  "units": string,
-  "daily": {
-    data: [
-      {
-        summary: string,
-      },
-    ],
-  },
-}
-
+import Header from "./component/header";
 
 export async function getStaticProps() {
 
@@ -40,15 +23,13 @@ export async function getStaticProps() {
 
   if (response.status !== 200) {
     console.error(response);
-    throw new Error('Failed to fetch weather data');
   }
 
-  const weatherData = await response.json();
+  const weatherData: tWeatherData = await response.json();
   const profile: ProfileType[] = await getProfile();
   const works: WorksType[] = await getWorks();
 
   //console.log('works', works);
-
   //console.log('weatherData', weatherData);
 
   return {
@@ -64,41 +45,18 @@ export async function getStaticProps() {
 
 export default function Home({ weatherData: weather, profile, works }: { weatherData: tWeatherData, profile: ProfileType[], works: WorksType[] }) {
   // console.log('weatherData', weather.daily.data[0]);
+  //console.log('hello', works);
 
-  // console.log('hello', works);
-
-  // const test = works.map((data) => {
-  //   console.log('data', data.skillsData);
-  //   data.skillsData.map((skill) => { 
-  //     console.log('skill', skill);
-  //   })
-  //  });
-
+  const sortedWorks = [...works].sort((a, b) => {
+    const dateA = new Date(a.launchDate).getTime();
+    const dateB = new Date(b.launchDate).getTime();
+    return dateB - dateA;
+  });
 
   return (
     <>
-      <Head>
-        <title>Richard is happy to help you own the world</title>
-        <meta name="description" content="Front End Developer with over 8 years experience. Specialize in marketing industry." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <header>
-        <div className="logo-container">
-          <a id="logo-richardtirta" href="/" className="logo-richardtirta">
-            <Image alt="Richard Tirta Widjaja" src={logo} width={500} height={59} />
-            <span>Richard Tirta Widjaja</span>
-          </a>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#thoghts">Thoughts</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main className={`${styles.main} ${inter.className}`}>
+      <Header/>
+      <main className={`${styles.main}`}>
         {
           profile && profile.map(
             (data) => (
@@ -108,16 +66,20 @@ export default function Home({ weatherData: weather, profile, works }: { weather
                   <p >
                     {data.shortBio}
                   </p>
-                  <p>
-                    This is what it feels right now in {data.location}: {weather.daily.data[0].summary}
-                  </p>
+                  {/* {
+                    weather ?
+                      <p>
+                        This is what it feels right now in {.location}: {weather.daily.data[0].summary}
+                      </p>
+                      : null
+                  } */}
                 </div>
                 <div className={`${styles.intro_right}`}>
                   <ul>
                     { 
                       Object.entries(data.socialLinks).sort().map(
                         ([key, value], id) => (
-                          <li key="id">
+                          <li key={id}>
                             <a target="_blank" href={value}>{key[0].toUpperCase() + key.toLowerCase().slice(1)}</a>
                           </li>
                         )
@@ -139,17 +101,22 @@ export default function Home({ weatherData: weather, profile, works }: { weather
             WORKS
           </h3>
 
-          <p className="align-right">Last Updated: February 2021</p>
+          <p className="align-right">Last Updated: July 2024</p>
 
           <div id="works-container">
             {
-              works && works.map(
+              sortedWorks && sortedWorks.map(
                 (data) => (
-                  <div className={`${styles.project_container}`} key={data._id}>
+                  <Link
+                    className={`${styles.project_container}`}
+                    key={data._id}
+                    href={`/works/${encodeURIComponent(data.projectName.replace(/[(\s]+/g, '-').replace(/[)]+/g, '').toLowerCase())}?id=${data._id}`}
+                  >
                     <div className={`${styles.project_description}`}>
                       <h4>{data.projectName}</h4>
                       <p>{data.clientName}</p>
-                      <ul>
+                      {data._id}
+                      <ul className={`${styles.project_tools}`}>
                         {
                           data.skillsData && data.skillsData.map(
                             (skill, id) => (
@@ -160,9 +127,9 @@ export default function Home({ weatherData: weather, profile, works }: { weather
                       </ul>
                     </div>
                     <div className={`${styles.project_image}`}>
-                      <Image src={data.thumbnail.image} alt={data.thumbnail.alt} width={500} height={500} />
+                      <Image src={data.thumbnail.image} alt={data.thumbnail.alt} width={824} height={212} />
                     </div>
-                  </div>
+                  </Link>
                 )
               )
             }

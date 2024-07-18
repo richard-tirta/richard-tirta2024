@@ -107,7 +107,13 @@ header {
 			}
 		}
 	}
-	
+}
+
+.featured {
+	@include background-icon('../styles/featured.png');
+	width: 53px;
+	height: 18px;
+	margin-right: 4px;
 }
 
 @keyframes logo {

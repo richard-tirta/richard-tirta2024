@@ -8,11 +8,11 @@ $base: 16; // Default
 
 @font-face {
     font-family: 'UniversLTStd67BoldCondensed';
-    src: url('../styles/fonts/universltstd-boldcn-webfont.eot');
-    src: url('../styles/fonts/universltstd-boldcn-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../styles/fonts/universltstd-boldcn-webfont.woff') format('woff'),
-         url('../styles/fonts/universltstd-boldcn-webfont.ttf') format('truetype'),
-         url('../styles/fonts/universltstd-boldcn-webfont.svg#UniversLTStd67BoldCondensed') format('svg');
+    src: url('./fonts/universltstd-boldcn-webfont.eot');
+    src: url('./fonts/universltstd-boldcn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/universltstd-boldcn-webfont.woff') format('woff'),
+         url('./fonts/universltstd-boldcn-webfont.ttf') format('truetype'),
+         url('./fonts/universltstd-boldcn-webfont.svg#UniversLTStd67BoldCondensed') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -20,11 +20,11 @@ $base: 16; // Default
 
 @font-face {
     font-family: 'UniversLTStd57Condensed';
-    src: url('../styles/fonts/universltstd-cn-webfont.eot');
-    src: url('../styles/fonts/universltstd-cn-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../styles/fonts/universltstd-cn-webfont.woff') format('woff'),
-         url('../styles/fonts/universltstd-cn-webfont.ttf') format('truetype'),
-         url('../styles/fonts/universltstd-cn-webfont.svg#UniversLTStd57Condensed') format('svg');
+    src: url('./fonts/universltstd-cn-webfont.eot');
+    src: url('./fonts/universltstd-cn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/universltstd-cn-webfont.woff') format('woff'),
+         url('./fonts/universltstd-cn-webfont.ttf') format('truetype'),
+         url('./fonts/universltstd-cn-webfont.svg#UniversLTStd57Condensed') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -32,11 +32,11 @@ $base: 16; // Default
 
 @font-face {
     font-family: 'FuturaStdBoldCondensed';
-    src: url('../styles/fonts/futurastd-condensedbold-webfont.eot');
-    src: url('../styles/fonts/futurastd-condensedbold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../styles/fonts/futurastd-condensedbold-webfont.woff') format('woff'),
-         url('../styles/fonts/futurastd-condensedbold-webfont.ttf') format('truetype'),
-         url('../styles/fonts/futurastd-condensedbold-webfont.svg#FuturaStdBoldCondensed') format('svg');
+    src: url('./fonts/futurastd-condensedbold-webfont.eot');
+    src: url('./fonts/futurastd-condensedbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/futurastd-condensedbold-webfont.woff') format('woff'),
+         url('./fonts/futurastd-condensedbold-webfont.ttf') format('truetype'),
+         url('./fonts/futurastd-condensedbold-webfont.svg#FuturaStdBoldCondensed') format('svg');
     font-weight: normal;
     font-style: normal;
 
