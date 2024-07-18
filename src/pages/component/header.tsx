@@ -14,6 +14,7 @@ export default function Header() {
         <link rel="icon" href="favicon/favicon_base.png" />
       </Head>
       <header>
+        <div className="header-container">
         <div className="logo-container">
           <a id="logo-richardtirta" href="/" className="logo-richardtirta">
             <Image alt="Richard Tirta Widjaja" src={logo} width={500} height={59} />
@@ -27,6 +28,7 @@ export default function Header() {
             <li><a href="#thoghts">Thoughts</a></li>
           </ul>
         </nav>
+        </div>
       </header>
     </>
   );

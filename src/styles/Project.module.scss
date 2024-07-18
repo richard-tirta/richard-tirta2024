@@ -1,0 +1,63 @@
+@import '/src/styles/globals.scss';
+
+
+.main {
+	margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+  width: 100vw;;
+}
+
+
+.project_container {
+	display: flex;
+	margin-top: 20px;
+
+	@include xsmall {
+		flex-direction: column;
+		margin-top: 40px;
+		width: 100%;
+	}
+	.project_description {
+		width: 35vw;
+    padding-right: 24px;
+		@include xsmall {
+			width: calc(100% - 32px);
+		}
+	}
+	.project_gallery {
+		width: 65%;
+		@include xsmall {
+			width: 100%;
+		}
+		img {
+			width: 100%;
+			@include xsmall {
+				height: 100%;
+				transform: translateX(-25%);
+				width: auto;
+			}
+		}
+	}
+  .project_tools {
+		align-items: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+		li {
+			border: 1px solid #ccc;
+      list-style: none;
+			margin-right: 8px;
+			margin-top: 8px;
+			line-height: 1.2;
+			padding: 4px;
+		}
+	}
+	.project_award {
+		margin-top: 20px;
+	}
+}

@@ -1,9 +1,14 @@
 
 import React, { useEffect, useState } from "react";
-import Header from "../component/header";
+
 import { getSingleWork } from "../../../sanity/sanity.query";
 import type { WorksType } from "../../../types";
 import { useRouter } from "next/router";
+
+import Header from "../component/header";
+import ProjectTools from "../component/project_tools";
+
+import styles from "@/styles/Project.module.scss";
 
 
 export default function Work() {
@@ -32,28 +37,43 @@ export default function Work() {
   return (
     <>
       <Header />
-      <main>
-        <section className="lightbox-container">
-          <a href="/" className="lightbox-close">
-            &laquo; BACK
-          </a>
-          <div className="lightbox-project">
-            <div className="lightbox-description">
-              <h3>{work.projectName}</h3>
-              {work.description.split('\n').map((c, pIndex) => {
-                return (<p key={pIndex}>{c}</p>)
-              })}
-              <div className="lightbox-tools">{
-                work.skillsData.map((tools, subindex) =>
-                  <span key={subindex}>{tools}</span>
-                )
-              }</div>
+      <main className={styles.main}>
+        <a href="/">
+          &laquo; Back
+        </a>
+        <section className={styles.project_container}>
+          <div className={styles.project_description}>
+            <h3>{work.projectName}</h3>
+            {work.description.split('\n').map((c, pIndex) => {
+              return (<p key={pIndex}>{c}</p>)
+            })}
+            <ProjectTools data={work.skillsData} />
+
+            <div className={styles.project_award}>
+              {
+                work.awardData ?  <h3>Featured in:</h3> : null
+              }
+              {
+                work.awardData && work.awardData.map((award, index) => {
+                  return (
+                    <ul key={index}>
+                      <li>{award}</li>
+                    </ul>
+                  )
+
+                })
+              }
             </div>
-            {/* <div className="lightbox-image">
-              {getGalleryImage(currentProjectData.name)}
-              {currentProjectData.youtube ? <div dangerouslySetInnerHTML={{ __html: currentProjectData.youtube }}></div> : null}
-              {currentProjectData.vimeo ? <div className="video-container" dangerouslySetInnerHTML={{ __html: currentProjectData.vimeo }}></div> : null}
-            </div> */}
+          </div>
+          <div className={styles.project_gallery}>
+            {
+              work.gallery.map((image, index) => {
+                return (
+                  <img key={index} src={image.image} alt={image.alt} />
+                )
+              }
+              )
+            }
           </div>
         </section>
       </main>

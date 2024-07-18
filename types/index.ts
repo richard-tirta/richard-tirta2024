@@ -30,7 +30,9 @@ export type ProfileType = {
   location: string,
   resumeURL: string,
   socialLinks: string[],
-  skills: string[],
+  skillsData: string[],
+  conceptData: string[],
+  contact: PortableTextBlock[],
 };
 
 export type WorksType = {
@@ -52,5 +54,5 @@ export type WorksType = {
     url: string
   }[],
   skillsData: string[],
-  awards: string[],
+  awardData: string[],
 };

@@ -23,11 +23,8 @@ section {
 }
 
 header {
-	align-items: flex-end;
 	background: rgb(10,10,10);
 	border-bottom: 1px solid rgb(50, 50, 50);
-	display: flex;
-	justify-content: space-between;
 	padding: 24px;
 	position: fixed;
 	top:0;
@@ -35,8 +32,19 @@ header {
 	right: 0;
 	z-index: 9;
 	@include xsmall {
-		flex-direction: column;
-		padding: 20px 20px 0 20px
+		padding: 16px;
+	}
+	.header-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		max-width: 1400px;
+		@include xsmall {
+			flex-direction: column;
+		}
 	}
 	.logo-container {
 		display: block;
@@ -56,6 +64,7 @@ header {
 			img {
 				display: block;
 				width: 100%;
+				height: auto;
 			}
 			span {
 				position: absolute;
@@ -114,6 +123,24 @@ header {
 	width: 53px;
 	height: 18px;
 	margin-right: 4px;
+}
+
+.project_tools {
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 0;
+	li {
+		border: 1px solid #ccc;
+		list-style: none;
+		margin-right: 8px;
+		margin-top: 8px;
+		line-height: 1.2;
+		padding: 4px;
+	}
 }
 
 @keyframes logo {
