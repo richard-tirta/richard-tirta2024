@@ -20,7 +20,7 @@ const works = {
       title: "Client Name",
       type: "string",
     }),
-    {
+    defineField({
       name: "thumbnail",
       title: "Project Thumbnail",
       type: "image",
@@ -31,9 +31,10 @@ const works = {
           name: "alt",
           title: "Alt",
           type: "string",
+          validation: (rule) => rule.required(),
         },
       ],
-    },
+    }),
     {
       name: "description",
       title: "Project description",

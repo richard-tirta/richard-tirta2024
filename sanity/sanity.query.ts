@@ -28,6 +28,18 @@ export async function getWorks() {
       projectName,
       clientName,
       thumbnail {alt, "image": asset->url},
+      launchDate,
+      "skillsData": skills,
+    }`
+  );
+}
+
+export async function getSingleWork(slug: string) {
+  return client.fetch(
+    groq`*[_type == "works" && _id == $slug][0]{
+      _id,
+      projectName,
+      clientName,
       description,
       link,
       launchDate,
@@ -35,6 +47,7 @@ export async function getWorks() {
       videoLink[] {url},
       "skillsData": skills,
       "awardData": award,
-    }`
+    }`,
+    {slug}
   );
 }
