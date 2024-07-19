@@ -12,11 +12,11 @@ export default function Works({  works }: { works: WorksType[] }) {
 
   //console.log('hello', works);
 
-  const sortedWorks = [...works].sort((a, b) => {
+  const sortedWorks = works && Array.isArray(works) ? [...works].sort((a, b) => {
     const dateA = new Date(a.launchDate).getTime();
     const dateB = new Date(b.launchDate).getTime();
     return dateB - dateA;
-  });
+  }) : [];
 
   //console.log('sortedWorks', sortedWorks);
 

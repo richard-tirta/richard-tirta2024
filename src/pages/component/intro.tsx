@@ -19,13 +19,13 @@ export default function Intro({ weatherData: weather, profile,  }: { weatherData
                   <p >
                     {data.shortBio}
                   </p>
-                  {/* {
+                  {
                     weather ?
                       <p>
-                        This is what it feels right now in {.location}: {weather.daily.data[0].summary}
+                        This is what it feels right now in {data.location}: {weather.daily.data[0].summary}
                       </p>
                       : null
-                  } */}
+                  }
                 </div>
                 <div className={`${styles.intro_right}`}>
                   <ul>

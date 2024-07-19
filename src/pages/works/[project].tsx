@@ -1,9 +1,12 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { getSingleWork } from "../../../sanity/sanity.query";
 import type { WorksType } from "../../../types";
 import { useRouter } from "next/router";
+
+import Link from "next/link";
+import Image from "next/image";
 
 import Header from "../component/header";
 import ProjectTools from "../component/project_tools";
@@ -32,15 +35,15 @@ export default function Work() {
     return null;
   }
 
-  console.log('work', work);
+  // console.log('work', work);
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <a href="/">
+        <Link href="/">
           &laquo; Back
-        </a>
+        </Link>
         <section className={styles.project_container}>
           <div className={styles.project_description}>
             <h3>{work.projectName}</h3>
@@ -69,7 +72,7 @@ export default function Work() {
             {
               work.gallery.map((image, index) => {
                   return (
-                    <img key={index} src={image.image} alt={image.alt} />
+                    <Image key={index} src={image.image} alt={image.alt} />
                   )
                 }
               )
