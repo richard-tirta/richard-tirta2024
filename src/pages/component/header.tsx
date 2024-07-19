@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "/public/logo-richardtirta.png";
 
 
@@ -16,16 +17,16 @@ export default function Header() {
       <header>
         <div className="header-container">
         <div className="logo-container">
-          <a id="logo-richardtirta" href="/" className="logo-richardtirta">
+          <Link id="logo-richardtirta" href="/" className="logo-richardtirta">
             <Image alt="Richard Tirta Widjaja" src={logo} width={500} height={59} />
             <span>Richard Tirta Widjaja</span>
-          </a>
+          </Link>
         </div>
         <nav>
           <ul>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#thoghts">Thoughts</a></li>
+            <li><Link href="#works">Works</Link></li>
+            <li><Link href="#about">About</Link></li>
+            {/* <li><a href="#thoughts">Thoughts</a></li> */}
           </ul>
         </nav>
         </div>

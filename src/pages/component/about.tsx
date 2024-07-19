@@ -3,6 +3,7 @@ import type { ProfileType } from "../../../types";
 
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "@/styles/Home.module.scss";
 
@@ -12,7 +13,7 @@ import ProjectTools from "./project_tools";
 
 export default function About({ profile }: { profile: ProfileType[] }) {
 
-  console.log('profile', profile);
+  //console.log('profile', profile);
 
   return (
     <>
@@ -38,13 +39,13 @@ export default function About({ profile }: { profile: ProfileType[] }) {
                     Object.entries(data.socialLinks).sort().map(
                       ([key, value], id) => (
                         <li key={id}>
-                          <a target="_blank" href={value}>{key[0].toUpperCase() + key.toLowerCase().slice(1)}</a>
+                          <Link target="_blank" href={value}>{key[0].toUpperCase() + key.toLowerCase().slice(1)}</Link>
                         </li>
                       )
                     )
                   }
                   <li>
-                    <a target="_blank" href={data.resumeURL}>Resume</a>
+                    <Link target="_blank" href={data.resumeURL}>Resume</Link>
                   </li>
                 </ul>
                 </div>
