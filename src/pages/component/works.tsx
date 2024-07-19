@@ -23,10 +23,10 @@ export default function Works({  works }: { works: WorksType[] }) {
   return (
     <>
       <section id="works">
-        <h3>
+        <h2>
           <span className="featured"></span>
           WORKS
-        </h3>
+        </h2>
 
         <p className="align-right">Last Updated: July 2024</p>
 

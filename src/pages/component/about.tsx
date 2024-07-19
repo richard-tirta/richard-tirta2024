@@ -18,10 +18,10 @@ export default function About({ profile }: { profile: ProfileType[] }) {
   return (
     <>
       <section id="about">
-        <h3>
+        <h2>
           <span className="featured"></span>
           ABOUT
-        </h3>
+        </h2>
         {
           profile && profile.map(
             (data) => (
