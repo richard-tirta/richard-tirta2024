@@ -79,8 +79,15 @@ export default function Work({ work }: { work: WorksType }) {
           <div className={styles.project_gallery}>
             {
               work.gallery && work.gallery.map((image, index) => {
-                  return (
-                    <Image key={index} src={image.image} alt={image.alt}  width={0}
+                return (
+                  index === 0
+                    ? <Image key={index} src={image.image} alt={image.alt}
+                      priority={true}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      style={{ width: '100%', height: 'auto' }} />
+                    : <Image key={index} src={image.image} alt={image.alt}  width={0}
                     height={0}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }} />
