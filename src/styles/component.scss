@@ -33,12 +33,14 @@ header {
 	border-bottom: 1px solid rgb(50, 50, 50);
 	padding: 24px;
 	position: fixed;
+	margin: 0;
 	top:0;
 	left: 0; 
 	right: 0;
 	z-index: 9;
 	@include xsmall {
-		padding: 16px;
+		padding: 16px 16px 0 16px;
+		max-width: calc(100vw - 32px);;
 	}
 	.header-container {
 		display: flex;
