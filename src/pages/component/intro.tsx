@@ -20,7 +20,7 @@ export default function Intro({ weatherData: weather, profile,  }: { weatherData
                     {data.shortBio}
                   </p>
                   {
-                    weather ?
+                    weather && weather.daily ?
                       <p>
                         This is what it feels right now in {data.location}: {weather.daily.data[0].summary}
                       </p>
