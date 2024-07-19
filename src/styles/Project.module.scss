@@ -7,16 +7,15 @@
   margin-right: auto;
   max-width: 1400px;
   width: 100vw;;
+	padding: 16px;
 }
 
 
 .project_container {
 	display: flex;
 	margin-top: 20px;
-
 	@include xsmall {
 		flex-direction: column;
-		margin-top: 40px;
 		width: 100%;
 	}
 	.project_description {
@@ -29,15 +28,10 @@
 	.project_gallery {
 		width: 65%;
 		@include xsmall {
-			width: 100%;
+			width: 90%;
 		}
 		img {
 			width: 100%;
-			@include xsmall {
-				height: 100%;
-				transform: translateX(-25%);
-				width: auto;
-			}
 		}
 	}
   .project_tools {
