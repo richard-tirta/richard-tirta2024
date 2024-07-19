@@ -68,11 +68,21 @@ export default function Work() {
           <div className={styles.project_gallery}>
             {
               work.gallery.map((image, index) => {
-                return (
-                  <img key={index} src={image.image} alt={image.alt} />
-                )
-              }
+                  return (
+                    <img key={index} src={image.image} alt={image.alt} />
+                  )
+                }
               )
+            }
+            {
+              work.videoLinks?.youtube
+                ? (<iframe width="960" height="540" src={work.videoLinks.youtube} allowFullScreen></iframe>)
+                : null
+            }
+            {
+              work.videoLinks?.vimeo
+                ? (<div><p>Password: crd@AKQA</p><iframe src={work.videoLinks.vimeo} width="960" height="540" allowFullScreen/></div>)
+                : null
             }
           </div>
         </section>
