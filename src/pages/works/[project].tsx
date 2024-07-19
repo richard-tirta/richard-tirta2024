@@ -1,9 +1,8 @@
 
-import { useEffect, useState } from "react";
 
 import { getSingleWork } from "../../../sanity/sanity.query";
 import type { WorksType } from "../../../types";
-import { useRouter } from "next/router";
+import { PortableText } from "@portabletext/react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -13,29 +12,36 @@ import ProjectTools from "../component/project_tools";
 
 import styles from "@/styles/Project.module.scss";
 
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
 
-export default function Work() {
+export async function getStaticProps(context: any) {
+  
+  //console.log('context', context);
+  
+  const work= await getSingleWork(context.params.project);
 
-  const router = useRouter();
-  const [work, setWork] = useState<WorksType | null>(null);
-
-  useEffect(() => {
-    const fetchWork = async () => {
-      const workId = typeof router.query.id === 'string' ? router.query.id : null;
-      if (!workId) return;
-
-      const fetchedWork = await getSingleWork(workId);
-      setWork(fetchedWork);
-    };
-
-    fetchWork();
-  }, [router.query]);
-
-  if (!work) {
-    return null;
+  return {
+    props: {
+      work
+    },
+    revalidate: 86400,
   }
 
-  // console.log('work', work);
+}
+
+
+export default function Work({ work }: { work: WorksType }) {
+
+  //console.log('work', work);
+
+  if (!work) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -47,9 +53,11 @@ export default function Work() {
         <section className={styles.project_container}>
           <div className={styles.project_description}>
             <h3>{work.projectName}</h3>
+
             {work.description.split('\n').map((c, pIndex) => {
               return (<p key={pIndex}>{c}</p>)
             })}
+            
             <ProjectTools data={work.skillsData} />
 
             <div className={styles.project_award}>
@@ -70,9 +78,12 @@ export default function Work() {
           </div>
           <div className={styles.project_gallery}>
             {
-              work.gallery.map((image, index) => {
+              work.gallery && work.gallery.map((image, index) => {
                   return (
-                    <Image key={index} src={image.image} alt={image.alt} />
+                    <Image key={index} src={image.image} alt={image.alt}  width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto' }} />
                   )
                 }
               )
