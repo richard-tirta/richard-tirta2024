@@ -46,7 +46,7 @@ export async function getSingleWork(slug: string) {
       link,
       launchDate,
       gallery[] {alt, "image": asset->url},
-      videoLink[] {url},
+      "videoLinks" : videolLinks,
       "skillsData": skills,
       "awardData": award,
     }`,

@@ -62,10 +62,26 @@ const works = {
       }
     },
     {
-      title: 'Video Link',
-      name: 'videoLink',
-      type: 'array',
-      of: [{type: 'url'}],
+      name: "videolLinks",
+      title: "Video Links",
+      type: "object",
+      description: "Add your video links:",
+      fields: [
+        {
+          name: "vimeo",
+          title: "Vimeo URL",
+          type: "url",
+        },
+        {
+          name: "youtube",
+          title: "Youtube URL",
+          type: "url",
+        },
+      ],
+      options: {
+        collapsed: false,
+        collapsible: true,
+      },
     },
     {
       name: "skills",

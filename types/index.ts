@@ -50,9 +50,11 @@ export type WorksType = {
     alt: string,
     image: string
   }[],
-  videoLink: {
-    url: string
-  }[],
+  videoLinks: {
+    vimeo: string,
+    youtube: string,
+  },
+  socialLinks: string[],
   skillsData: string[],
   awardData: string[],
 };
