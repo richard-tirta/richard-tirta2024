@@ -46,7 +46,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ weatherData: weather, profile, works }: { weatherData: tWeatherData, profile: ProfileType[], works: WorksType[] }) {
-  console.log('weatherData', weather.daily.data[0]);
+  //console.log('weatherData', weather.daily.data[0]);
   //console.log('hello', works);
 
   const sortedWorks = [...works].sort((a, b) => {
@@ -56,7 +56,7 @@ export default function Home({ weatherData: weather, profile, works }: { weather
   });
 
   //console.log('sortedWorks', sortedWorks);
-  console.log('profile', profile);
+  //console.log('profile', profile);
 
   return (
     <>

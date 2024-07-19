@@ -6,7 +6,7 @@ import styles from "@/styles/Home.module.scss";
 
 export default function Intro({ weatherData: weather, profile,  }: { weatherData: tWeatherData, profile: ProfileType[]}) {
   // console.log('weatherData', weather.daily.data[0]);
-  console.log('profile', profile);
+  // console.log('profile', profile);
 
   return (
     <>
