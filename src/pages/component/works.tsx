@@ -37,7 +37,7 @@ export default function Works({  works }: { works: WorksType[] }) {
                 <Link
                   className={`${styles.project_container}`}
                   key={data._id}
-                  href={`/works/${encodeURIComponent(data.projectName.replace(/[(\s]+/g, '-').replace(/[)]+/g, '').toLowerCase())}?id=${data._id}`}
+                  href={`/works/${encodeURIComponent(data.projectName)}`}
                 >
                   <div className={`${styles.project_description}`}>
                     <h4>{data.projectName}</h4>

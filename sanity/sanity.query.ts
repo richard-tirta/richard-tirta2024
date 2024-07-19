@@ -38,7 +38,7 @@ export async function getWorks() {
 
 export async function getSingleWork(slug: string) {
   return client.fetch(
-    groq`*[_type == "works" && _id == $slug][0]{
+    groq`*[_type == "works" && projectName == $slug][0]{
       _id,
       projectName,
       clientName,
