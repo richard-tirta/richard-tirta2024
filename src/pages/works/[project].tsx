@@ -86,9 +86,11 @@ export default function Work({ work }: { work: WorksType }) {
                       width={0}
                       height={0}
                       sizes="100vw"
+                      placeholder="blur"
                       style={{ width: '100%', height: 'auto' }} />
                     : <Image key={index} src={image.image} alt={image.alt}  width={0}
-                    height={0}
+                      height={0}
+                      placeholder="blur"
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }} />
                   )
