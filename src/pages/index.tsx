@@ -1,4 +1,5 @@
 
+
 import { getProfile, getWorks } from "../../sanity/sanity.query";
 import type { tWeatherData, ProfileType, WorksType } from "../../types";
 
@@ -16,7 +17,7 @@ export async function getStaticProps() {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '32e980ea2bmsh471eda03e5cbd27p15f0f0jsnb6324fe73347',
+      'X-RapidAPI-Key': process.env.RAPID_KEY || '',
       'X-RapidAPI-Host': 'ai-weather-by-meteosource.p.rapidapi.com'
     }
   };
