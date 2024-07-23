@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "@/styles/Home.module.scss";
 
 import ProjectTools from "./project_tools";
-import { Shimmer, ToBase64 } from "../component/img_shimmer";
+import { SHIMMER, TO_BASE_64 } from "../../component/variables"
 
 
 export default function Works({  works }: { works: WorksType[] }) {
@@ -50,7 +50,7 @@ export default function Works({  works }: { works: WorksType[] }) {
                       alt={data.thumbnail.alt}
                       width={824}
                       height={212}
-                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`} />
+                      placeholder={`data:image/svg+xml;base64,${TO_BASE_64(SHIMMER(700, 475))}`} />
                   </div>
                 </Link>
               )

@@ -8,7 +8,7 @@ import Image from "next/image";
 
 import Header from "../component/header";
 import ProjectTools from "../component/project_tools";
-import { Shimmer, ToBase64 } from "../component/img_shimmer";
+import { SHIMMER, TO_BASE_64 } from "../../component/variables"
 
 import styles from "@/styles/Project.module.scss";
 
@@ -86,12 +86,12 @@ export default function Work({ work }: { work: WorksType }) {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`}
+                      placeholder={`data:image/svg+xml;base64,${TO_BASE_64(SHIMMER(700, 475))}`}
                       style={{ width: '100%', height: 'auto' }} />
                     : <Image key={index} src={image.image} alt={image.alt}  width={0}
                     height={0}
                       sizes="100vw"
-                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`}
+                      placeholder={`data:image/svg+xml;base64,${TO_BASE_64(SHIMMER(700, 475))}`}
                     style={{ width: '100%', height: 'auto' }} />
                   )
                 }
