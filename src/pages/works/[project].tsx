@@ -2,13 +2,13 @@
 
 import { getSingleWork } from "../../../sanity/sanity.query";
 import type { WorksType } from "../../../types";
-import { PortableText } from "@portabletext/react";
 
 import Link from "next/link";
 import Image from "next/image";
 
 import Header from "../component/header";
 import ProjectTools from "../component/project_tools";
+import { Shimmer, ToBase64 } from "../component/img_shimmer";
 
 import styles from "@/styles/Project.module.scss";
 
@@ -86,12 +86,12 @@ export default function Work({ work }: { work: WorksType }) {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      placeholder="blur"
+                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`}
                       style={{ width: '100%', height: 'auto' }} />
                     : <Image key={index} src={image.image} alt={image.alt}  width={0}
-                      height={0}
-                      placeholder="blur"
-                    sizes="100vw"
+                    height={0}
+                      sizes="100vw"
+                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`}
                     style={{ width: '100%', height: 'auto' }} />
                   )
                 }

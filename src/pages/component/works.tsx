@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "@/styles/Home.module.scss";
 
 import ProjectTools from "./project_tools";
+import { Shimmer, ToBase64 } from "../component/img_shimmer";
 
 
 export default function Works({  works }: { works: WorksType[] }) {
@@ -45,7 +46,11 @@ export default function Works({  works }: { works: WorksType[] }) {
                     <ProjectTools data={data.skillsData} />
                   </div>
                   <div className={`${styles.project_image}`}>
-                    <Image src={data.thumbnail.image} alt={data.thumbnail.alt} width={824} height={212} />
+                    <Image src={data.thumbnail.image}
+                      alt={data.thumbnail.alt}
+                      width={824}
+                      height={212}
+                      placeholder={`data:image/svg+xml;base64,${ToBase64(Shimmer(700, 475))}`} />
                   </div>
                 </Link>
               )
