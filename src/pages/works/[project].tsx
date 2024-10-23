@@ -54,6 +54,8 @@ export default function Work({ work }: { work: WorksType }) {
           <div className={styles.project_description}>
             <h3>{work.projectName}</h3>
 
+            <a href={work.link} target="_blank">{work.link} &raquo;</a>
+
             {work.description.split('\n').map((c, pIndex) => {
               return (<p key={pIndex}>{c}</p>)
             })}
