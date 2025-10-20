@@ -89,13 +89,14 @@
 			border-bottom-right-radius: 8px;
 			border-bottom-left-radius: 8px;
 			width: 100%;
+			height: 130px;
 		}
 		img {
 			width: 100%;
 			height: auto;
 			@include xsmall {
 				height: 100%;
-				transform: translateX(-25%);
+				transform: translateX(-15%);
 				width: auto;
 			}
 		}
@@ -104,11 +105,27 @@
 
 .about_container {
 	display: flex;
+	@include xsmall {
+		flex-direction: column;
+	}
 	.about_text {
 		padding-right: 30px;
 		width: 45%;
+		@include xsmall {
+			padding-right: 0;
+			margin-bottom: 30px;
+			width: 100%;
+		}
 	}
 	.about_text2 {
 		width: 55%;
+		@include xsmall {
+			width: 100%;
+		}
+	}
+	.aboutPicture{
+		max-width: 100%;
+		width: 100%;
+		height: auto;
 	}
 }

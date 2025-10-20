@@ -10,7 +10,7 @@ import Header from "../component/header";
 import ProjectTools from "../component/project_tools";
 import { SHIMMER, TO_BASE_64 } from "../../component/variables"
 
-import styles from "@/styles/Project.module.scss";
+import styles from "../../styles/Home.module.scss";
 
 export async function getStaticPaths() {
   return {

@@ -3,7 +3,7 @@ import type { WorksType } from "../../../types";
 
 import Image from "next/image";
 import Link from "next/link";
-import styles from "@/styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 
 import ProjectTools from "./project_tools";
 import { SHIMMER, TO_BASE_64 } from "../../component/variables"

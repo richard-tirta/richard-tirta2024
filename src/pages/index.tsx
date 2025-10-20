@@ -3,7 +3,7 @@
 import { getProfile, getWorks } from "../../sanity/sanity.query";
 import type { tWeatherData, ProfileType, WorksType } from "../../types";
 
-import styles from "@/styles/Home.module.scss";
+import styles from "../styles/Home.module.scss";
 
 import Header from "./component/header";
 import Intro from "./component/intro";
