@@ -1,4 +1,4 @@
-
+// Media query mixins
 @mixin xlarge {
 	@media (min-width: 1200px) { @content; }
 }
@@ -25,7 +25,7 @@
 	@media (max-height: 400px) { @content; }
 }
 
-
+// Color variables
 $dark-gray: #333;
 $blue: #1B75BB;
 

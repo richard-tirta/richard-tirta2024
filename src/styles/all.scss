@@ -1,10 +1,9 @@
 
+
 @charset "utf-8";
-@import '/src/styles/normalize.scss';
-@import '/src/styles/globals.scss';
 
-
-@import "/src/styles/typography.scss";
-
-
-@import "/src/styles/component.scss";
+// Use the new module system instead of @import
+@use 'normalize';
+@use 'globals';
+@use 'typography';
+@use 'component';
