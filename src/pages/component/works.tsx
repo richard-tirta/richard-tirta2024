@@ -31,7 +31,7 @@ export default function Works({  works }: { works: WorksType[] }) {
 
         <p className="align-right">Last Updated: July 2024</p>
 
-        <div id="works-container">
+        <div id="works-container" className={styles.works_container}>
           {
             sortedWorks && sortedWorks.map(
               (data) => (

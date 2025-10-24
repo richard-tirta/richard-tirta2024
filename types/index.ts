@@ -43,7 +43,8 @@ export type WorksType = {
     alt: string,
     image: string
   },
-  description: string,
+  description: PortableTextBlock[] | string, // Support both formats during migration
+  descriptionOld?: string, // Backup field
   link: string,
   launchDate: string,
   gallery: {

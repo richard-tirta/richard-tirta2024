@@ -2,6 +2,7 @@
 
 import { getSingleWork } from "../../../sanity/sanity.query";
 import type { WorksType } from "../../../types";
+import DescriptionRenderer from "../component/DescriptionRenderer";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +11,7 @@ import Header from "../component/header";
 import ProjectTools from "../component/project_tools";
 import { SHIMMER, TO_BASE_64 } from "../../component/variables"
 
-import styles from "../../styles/Home.module.scss";
+import styles from "../../styles/Project.module.scss";
 
 export async function getStaticPaths() {
   return {
@@ -56,9 +57,7 @@ export default function Work({ work }: { work: WorksType }) {
 
             <a href={work.link} target="_blank">{work.link} &raquo;</a>
 
-            {work.description.split('\n').map((c, pIndex) => {
-              return (<p key={pIndex}>{c}</p>)
-            })}
+            <DescriptionRenderer description={work.description} />
             
             <ProjectTools data={work.skillsData} />
 

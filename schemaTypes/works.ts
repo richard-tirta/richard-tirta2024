@@ -35,12 +35,51 @@ const works = {
         },
       ],
     }),
+    // Temporary: Keep old description for migration
     {
-      name: "description",
-      title: "Project description",
+      name: "descriptionOld",
+      title: "Project description (OLD - for migration)",
       type: "text",
       rows: 5,
+      hidden: true, // Hide from Studio UI
     },
+    defineField({
+      name: "description",
+      title: "Project description",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H1", value: "h1" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "Quote", value: "blockquote" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Strong", value: "strong" },
+              { title: "Emphasis", value: "em" },
+            ],
+            annotations: [
+              {
+                title: "URL",
+                name: "link",
+                type: "object",
+                fields: [
+                  {
+                    title: "URL",
+                    name: "href",
+                    type: "url",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    }),
     {
       title: 'Link',
       name: 'link',
