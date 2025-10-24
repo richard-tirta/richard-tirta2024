@@ -29,7 +29,7 @@ export default function Works({  works }: { works: WorksType[] }) {
           WORKS
         </h2>
 
-        <p className="align-right">Last Updated: July 2024</p>
+        <p className="align-right">Last Updated: October 2025</p>
 
         <div id="works-container" className={styles.works_container}>
           {

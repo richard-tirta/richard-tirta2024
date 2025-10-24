@@ -1,7 +1,6 @@
 
 import type { tWeatherData, ProfileType } from "../../../types";
-
-import styles from "@/styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 
 
 export default function Intro({ weatherData: weather, profile,  }: { weatherData: tWeatherData, profile: ProfileType[]}) {
