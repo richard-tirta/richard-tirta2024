@@ -55,7 +55,11 @@ export default function Work({ work }: { work: WorksType }) {
           <div className={styles.project_description}>
             <h3>{work.projectName}</h3>
 
-            <a href={work.link} target="_blank">{work.link} &raquo;</a>
+            {
+              work.link && (
+                <a href={work.link} target="_blank">{work.link} &raquo;</a>
+              )
+            }
 
             <DescriptionRenderer description={work.description} />
             
